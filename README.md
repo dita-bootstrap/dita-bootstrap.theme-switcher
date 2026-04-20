@@ -44,8 +44,8 @@ rm dita-ot-4.2.zip
 
 ```console
 dita install https://github.com/jason-fox/fox.jason.extend.css/archive/master.zip
-dita install https://github.com/infotexture/dita-bootstrap/archive/master.zip
-dita install https://github.com/jason-fox/jason.fox.theme-switcher/archive/master.zip
+dita install https://github.com/dita-bootstrap/dita-bootstrap/archive/develop.zip
+dita install https://github.com/dita-bootstrap/dita-bootstrap.theme-switcher/archive/develop.zip
 ```
 
 ## Usage
