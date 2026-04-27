@@ -5,7 +5,7 @@
 [![license](https://img.shields.io/github/license/jason-fox/fox.jason.theme-switcher.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![DITA-OT 4.2](https://img.shields.io/badge/DITA--OT-4.2-green.svg)](http://www.dita-ot.org/4.2)
 
-_DITA Bootstrap CSS Theme Switcher_ is a [DITA Open Toolkit plug-in](https://www.dita-ot.org/plugins) that extends the [DITA Bootstrap](https://infotexture.github.io/dita-bootstrap/) HTML output to add a switch mechanism for the CSS theme.
+_DITA Bootstrap CSS Theme Switcher_ is a [DITA Open Toolkit plug-in](https://www.dita-ot.org/plugins) that extends the [DITA Bootstrap](https://dita-bootstrap.github.io) HTML output to add a switch mechanism for the CSS theme.
 
 <!-- MarkdownTOC levels="2,3" -->
 
@@ -43,9 +43,9 @@ rm dita-ot-4.2.zip
 - Run the plug-in installation commands:
 
 ```console
-dita install https://github.com/jason-fox/fox.jason.extend.css/archive/master.zip
-dita install https://github.com/dita-bootstrap/dita-bootstrap/archive/develop.zip
-dita install https://github.com/dita-bootstrap/dita-bootstrap.theme-switcher/archive/develop.zip
+dita install fox.jason.extend.css
+dita install org.dita-bootstrap.html
+dita install org.dita-bootstrap.theme-switcher
 ```
 
 ## Usage
@@ -77,5 +77,5 @@ PATH_TO_DITA_OT/bin/dita -f html5-bootstrap -o out -i PATH_TO_DITAMAP \
 
 ## License
 
-[Apache 2.0](LICENSE) © 2023 - 2024 Jason Fox
+[Apache 2.0](LICENSE) © 2023 - 2026 Jason Fox
 
