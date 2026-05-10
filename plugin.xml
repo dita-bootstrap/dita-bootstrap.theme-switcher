@@ -4,7 +4,7 @@
   This file is part of the DITA Bootstrap CSS Toggler plug-in for DITA Open Toolkit.
   See the accompanying LICENSE file for applicable licenses.
 -->
-<plugin id="fox.jason.theme-switcher" version="1.0.0">
+<plugin id="org.dita-bootstrap.theme-switcher" version="1.0.0">
   <require plugin="org.dita-bootstrap.html"/>
   <feature extension="ant.import" file="theme_switcher.xml" />
   <feature extension="dita.xsl.html5" value="xsl/xhtml.xsl" type="file"/>
