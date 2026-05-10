@@ -5,7 +5,7 @@
   See the accompanying LICENSE file for applicable licenses.
 -->
 <plugin id="fox.jason.theme-switcher" version="1.0.0">
-  <require plugin="net.infotexture.dita-bootstrap" />
+  <require plugin="org.dita-bootstrap.html"/>
   <feature extension="ant.import" file="theme_switcher.xml" />
   <feature extension="dita.xsl.html5" value="xsl/xhtml.xsl" type="file"/>
   <feature extension="bootstrap.process.pre" value="theme-switcher.init"/>
