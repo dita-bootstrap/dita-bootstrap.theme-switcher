@@ -5,7 +5,7 @@
   See the accompanying LICENSE file for applicable licenses.
 -->
 <project
-  name="dita.plugin.fox.jason.theme-switcher"
+  name="dita.plugin.org.dita-bootstrap.theme-switcher"
   xmlns:if="ant:if"
 >
   
@@ -14,7 +14,7 @@
     <mkdir dir="${dita.output.dir}/js"/>
     <copy todir="${dita.output.dir}/js">
       <fileset
-        dir="${dita.plugin.fox.jason.theme-switcher.dir}/resource"
+        dir="${dita.plugin.org.dita-bootstrap.theme-switcher.dir}/resource"
         includes="css-theme-switcher.js"
       />
     </copy>
