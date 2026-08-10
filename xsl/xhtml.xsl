@@ -30,26 +30,6 @@
     <xsl:next-match/>
 
     <xsl:if test="$CSS_THEME_SWITCHER_INCLUDE = 'yes'">
-      <script>
-        <xsl:text disable-output-escaping="yes"><![CDATA[
-        (function() {
-          const css = localStorage.getItem('css-theme');
-          if (css) {
-            const links = document.querySelectorAll('link');
-            for (let i = 0; i < links.length; i++) {
-              const link = links[i];
-              if (/.*\.min\.css/.test(link.href)) {
-                if (link.href !== css) {
-                  link.removeAttribute('integrity');
-                  link.href = css;
-                }
-                break;
-              }
-            }
-          }
-        })();
-        ]]></xsl:text>
-      </script>
       <script language="javascript" src="{$relpath}/js/css-theme-switcher.js"/>
     </xsl:if>
   </xsl:template>
