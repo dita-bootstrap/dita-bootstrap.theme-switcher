@@ -29,7 +29,40 @@
 
     <xsl:next-match/>
 
-    <xsl:if test="$CSS_THEME_SWITCHER_INCLUDE = 'yes'">
+    <xsl:if test="$CSS_THEME_SWITCHER_INCLUDE = 'yes' and string-length($HDRFILE) > 0">
+      <xsl:variable name="cssThemeHrefs" as="xs:string*" select="document($HDRFILE, /)//*[@data-bs-css-href]/string(@data-bs-css-href)"/>
+      <xsl:if test="count($cssThemeHrefs) > 0">
+        <script>
+          <xsl:text>
+(function() {
+  var validThemes = [</xsl:text>
+          <xsl:for-each select="$cssThemeHrefs">
+            <xsl:if test="position() > 1">
+              <xsl:text>,</xsl:text>
+            </xsl:if>
+            <xsl:text>"</xsl:text>
+            <xsl:value-of select="."/>
+            <xsl:text>"</xsl:text>
+          </xsl:for-each>
+          <xsl:text>];
+  var css = localStorage.getItem('css-theme');
+  if (css) {
+    if (validThemes.indexOf(css) !== -1) {
+      var link = Array.prototype.find.call(document.querySelectorAll('link'), function(l) {
+        return /\.min\.css$/.test(l.href);
+      });
+      if (link) {
+        if (link.href !== css) {
+          link.removeAttribute('integrity');
+          link.href = css;
+        }
+      }
+    }
+  }
+})();
+</xsl:text>
+        </script>
+      </xsl:if>
       <script language="javascript" src="{$relpath}/js/css-theme-switcher.js"/>
     </xsl:if>
   </xsl:template>
