@@ -42,17 +42,21 @@
 
   const setColors = colors => {
     const link = linkRegex(/.*\.min\.css/)[0];
-    const style = document.querySelector('style[data-colors]');
+    const existing = document.querySelector('link[data-colors]');
 
     if (colors) {
-      const target = style || document.createElement('style');
+      if (existing && existing.getAttribute('href') === colors) {
+        return;
+      }
+      const target = existing || document.createElement('link');
+      target.setAttribute('rel', 'stylesheet');
       target.setAttribute('data-colors', '');
-      target.textContent = colors;
+      target.setAttribute('href', colors);
       if (link) {
         link.insertAdjacentElement('afterend', target);
       }
-    } else if (style) {
-      style.remove();
+    } else if (existing) {
+      existing.remove();
     }
   };
 
