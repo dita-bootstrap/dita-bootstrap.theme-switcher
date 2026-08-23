@@ -8,6 +8,10 @@
   const getStoredCss = () => localStorage.getItem('css-theme');
   const setStoredCss = css => localStorage.setItem('css-theme', css);
 
+  const getStoredColors = () => localStorage.getItem('css-colors');
+  const setStoredColors = colors => localStorage.setItem('css-colors', colors);
+  const removeStoredColors = () => localStorage.removeItem('css-colors');
+
   const setCss = css => {
       if (css) {
         const link = linkRegex(/.*\.min\.css/)[0];
@@ -34,6 +38,22 @@
           link.setAttribute("href", css);
         }
       }
+  };
+
+  const setColors = colors => {
+    const link = linkRegex(/.*\.min\.css/)[0];
+    const style = document.querySelector('style[data-colors]');
+
+    if (colors) {
+      const target = style || document.createElement('style');
+      target.setAttribute('data-colors', '');
+      target.textContent = colors;
+      if (link) {
+        link.insertAdjacentElement('afterend', target);
+      }
+    } else if (style) {
+      style.remove();
+    }
   };
 
   const linkRegex = (regex) => {
@@ -78,11 +98,27 @@
     if (isAvailable) {
       showActiveCss(stored);
     }
+
+    const storedColors = getStoredColors();
+    if (storedColors) {
+      setColors(storedColors);
+    }
+
     document.querySelectorAll('[data-bs-css-href]').forEach(toggle => {
       toggle.addEventListener('click', () => {
         const css = toggle.getAttribute('data-bs-css-href');
+        const colors = toggle.getAttribute('data-colors');
+
         setStoredCss(css);
         setCss(css);
+
+        if (colors) {
+          setStoredColors(colors);
+        } else {
+          removeStoredColors();
+        }
+        setColors(colors);
+
         showActiveCss(css, true);
       });
     });
